@@ -17,9 +17,12 @@ passport.use(
          User.findOne({googleId:profile.id})
             .then((existingUser)=>{
                     if(existingUser){
-
+                        done(null, existingUser);
                     }else{
-                        new User({googleId:profile.id}).save();
+                        new User({googleId:profile.id}).save()
+                            .then(user=>{
+                                done(null, user);
+                            });
                     }
             })
       
