@@ -13,6 +13,15 @@ passport.use(
         console.log(accessToken);
         console.log(refreshToken);
         console.log(done);
-        new User({googleId:profile.id}).save();
+       
+         User.findOne({googleId:profile.id})
+            .then((existingUser)=>{
+                    if(existingUser){
+
+                    }else{
+                        new User({googleId:profile.id}).save();
+                    }
+            })
+      
     })
     );
