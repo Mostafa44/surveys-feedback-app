@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 const Header=(props)=>{
   const renderContent=()=>{
     if(props.auth === null){
@@ -13,7 +14,11 @@ const Header=(props)=>{
     return (
        <nav>
     <div className="nav-wrapper">
-      <a href="#" className="brand-logo">Emaily</a>
+      <Link  to={props.auth ? "/surveys" : "/"}
+      className="brand-logo"
+      >
+      Emaily
+      </Link>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
        {renderContent()}
       </ul>
