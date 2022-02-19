@@ -5,6 +5,6 @@ export const fetchUser= ()=>{
   return async function(dispatch){
   const res=  await  axios.get('/api/current_user');
   console.log("inside fetch user")
-  dispatch({type: FETCH_USER, payload: res});
+  dispatch({type: FETCH_USER, payload: res.data});
 }
 }
