@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
+
 const Header=(props)=>{
   const renderContent=()=>{
     if(props.auth === null){
@@ -8,7 +10,10 @@ const Header=(props)=>{
     }else if (props.auth === false){
       return  <li><a href="/auth/google">Login With Google</a></li>
     }else{
-      return <li><a href="/api/logout">Logout</a></li>
+      return[
+      <li key={1}><Payments/></li>,
+       <li key={2}><a href="/api/logout">Logout</a></li>
+       ]
     }
   }
     return (
