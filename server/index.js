@@ -5,6 +5,7 @@ const passport= require('passport');
 const keys= require('./config/keys');
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 const authRoutes= require('./routes/authRoutes');
 const app= express();
