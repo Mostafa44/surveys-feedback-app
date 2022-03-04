@@ -24,6 +24,7 @@ app.use(passport.session());
 mongoose.connect(keys.mongoURI);
 authRoutes(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
